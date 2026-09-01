@@ -1,9 +1,11 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null;
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -128,6 +130,12 @@ You are friendly, confident, professional and internationally oriented.
 `;
 
 export async function POST(request: Request) {
+  if (!openai) {
+    return Response.json(
+      { error: "AI is currently unavailable" },
+      { status: 503 }
+    );
+  }
   try {
     if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
