@@ -12,9 +12,9 @@ import InfinotechAI from "@/components/InfinotechAI";
 import "./globals.css";
 
 
-/* ----------------------------------
+/* ===============================
    FONTS
------------------------------------ */
+================================ */
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,264 +30,588 @@ const geistMono = Geist_Mono({
 });
 
 
-/* ----------------------------------
-   SITE CONFIG
------------------------------------ */
+/* ===============================
+   WEBSITE CONFIG
+================================ */
 
 const siteUrl = "https://infinotech.com";
 
 const siteName = "Infinotech";
 
-const siteDescription =
-  "Infinotech is a digital technology studio building modern websites, web applications, mobile apps, custom software, AI-powered solutions, automation and digital experiences for businesses.";
+
+const description =
+"Infinotech is a digital product studio delivering modern website development, custom software solutions, mobile applications, AI solutions, automation, UI/UX design, cloud solutions and digital transformation services for businesses worldwide.";
 
 
-/* ----------------------------------
-   GLOBAL SEO METADATA
------------------------------------ */
+
+/* ===============================
+   SEO METADATA
+================================ */
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
 
 
-  /* APP / BRAND */
-
-  applicationName: siteName,
-
-  creator: "Infinotech",
-
-  publisher: "Infinotech",
-
-  category: "Technology",
+metadataBase: new URL(siteUrl),
 
 
-  /* TITLE */
-
-  title: {
-    default:
-      "Infinotech | Digital Products, Software & AI Solutions",
-
-    template:
-      "%s | Infinotech",
-  },
+applicationName: siteName,
 
 
-  /* DESCRIPTION */
+title: {
+  default:
+  "Infinotech | Web Development, Software & AI Solutions",
 
-  description: siteDescription,
-
-
-  /* CANONICAL */
-
-  alternates: {
-    canonical: "/",
-  },
+  template:
+  "%s | Infinotech",
+},
 
 
-  /* SEARCH ENGINE */
-
-  robots: {
-    index: true,
-    follow: true,
-
-    googleBot: {
-      index: true,
-      follow: true,
-
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+description,
 
 
-  /* OPEN GRAPH
-     Used by WhatsApp, Facebook,
-     LinkedIn and other platforms
-  */
+keywords:[
 
-  openGraph: {
-    type: "website",
+"Infinotech",
 
-    locale: "en_US",
+"Software Development Company",
 
-    url: siteUrl,
+"Website Development",
 
-    siteName,
+"Web Application Development",
 
-    title:
-      "Infinotech | Digital Products, Software & AI Solutions",
+"Mobile App Development",
 
-    description: siteDescription,
-  },
+"AI Solutions",
 
+"Artificial Intelligence",
 
-  /* X / TWITTER CARD */
+"AI Automation",
 
-  twitter: {
-    card: "summary_large_image",
+"Custom Software",
 
-    title:
-      "Infinotech | Digital Products, Software & AI Solutions",
+"UI UX Design",
 
-    description: siteDescription,
-  },
+"Digital Product Studio",
 
+"Cloud Solutions",
 
-  /* ICON */
+"Business Automation",
 
-  icons: {
-    icon: [
-      {
-        url: "/logo/infinotech-icon.png",
-      },
-    ],
+"Sri Lanka Software Company",
 
-    shortcut: "/logo/infinotech-icon.png",
+"Technology Solutions"
 
-    apple: "/logo/infinotech-icon.png",
-  },
+],
 
 
-  /* OTHER */
 
-  other: {
-    "format-detection": "telephone=no",
-  },
+authors:[
+{
+name:"Infinotech"
+}
+],
+
+
+
+creator:"Infinotech",
+
+publisher:"Infinotech",
+
+
+
+category:"Technology",
+
+
+
+alternates:{
+canonical:"/",
+},
+
+
+
+
+robots:{
+
+
+index:true,
+
+follow:true,
+
+
+googleBot:{
+
+
+index:true,
+
+follow:true,
+
+
+"max-image-preview":"large",
+
+"max-snippet":-1,
+
+"max-video-preview":-1,
+
+
+},
+
+
+},
+
+
+
+
+
+/* ===============================
+OPEN GRAPH
+================================ */
+
+
+openGraph:{
+
+
+type:"website",
+
+
+url:siteUrl,
+
+
+siteName,
+
+
+locale:"en_US",
+
+
+title:
+"Infinotech | Digital Products, Software & AI Solutions",
+
+
+description,
+
+
+images:[
+
+{
+
+url:"/og-image.png",
+
+width:1200,
+
+height:630,
+
+alt:
+"Infinotech Digital Product Studio",
+
+}
+
+]
+
+
+},
+
+
+
+
+
+/* ===============================
+TWITTER
+================================ */
+
+
+twitter:{
+
+
+card:"summary_large_image",
+
+
+title:
+"Infinotech | Software & AI Solutions",
+
+
+description,
+
+
+images:[
+"/og-image.png"
+]
+
+
+},
+
+
+
+
+
+
+/* ===============================
+ICONS
+================================ */
+
+
+icons:{
+
+
+icon:"/favicon.png",
+
+
+shortcut:"/favicon.png",
+
+
+apple:"/apple-icon.png"
+
+
+},
+
+
+
+
+/* ===============================
+OTHER
+================================ */
+
+
+other:{
+
+
+"google-site-verification":
+"YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
+
+
+"format-detection":
+"telephone=no",
+
+
+
+}
+
 };
 
 
-/* ----------------------------------
-   VIEWPORT
------------------------------------ */
 
-export const viewport: Viewport = {
-  width: "device-width",
 
-  initialScale: 1,
 
-  maximumScale: 5,
+/* ===============================
+VIEWPORT
+================================ */
 
-  themeColor: [
-    {
-      media: "(prefers-color-scheme: light)",
-      color: "#ffffff",
-    },
 
-    {
-      media: "(prefers-color-scheme: dark)",
-      color: "#080808",
-    },
-  ],
+export const viewport:Viewport={
 
-  colorScheme: "light",
+
+width:"device-width",
+
+
+initialScale:1,
+
+
+maximumScale:5,
+
+
+themeColor:"#ffffff",
+
+
+colorScheme:"light"
+
+
 };
 
 
-/* ----------------------------------
-   STRUCTURED DATA
------------------------------------ */
 
-const organizationSchema = {
-  "@context": "https://schema.org",
 
-  "@type": "Organization",
 
-  name: "Infinotech",
 
-  url: siteUrl,
+/* ===============================
+STRUCTURED DATA
+================================ */
 
-  logo: `${siteUrl}/logo/infinotech-icon.png`,
 
-  description: siteDescription,
 
-  foundingDate: "2020-12-08",
+const structuredData = {
 
-  telephone: "+94754546492",
 
-  parentOrganization: {
-    "@type": "Organization",
-    name: "Apexx Private Limited",
-  },
+"@context":
+"https://schema.org",
 
-  knowsAbout: [
-    "Web Development",
-    "Web Applications",
-    "Mobile Applications",
-    "Custom Software Development",
-    "UI/UX Design",
-    "Artificial Intelligence",
-    "AI Automation",
-    "Cloud Computing",
-    "DevOps",
-    "Database Solutions",
-    "E-Commerce",
-    "Digital Marketing",
-  ],
+
+
+"@graph":[
+
+
+
+{
+
+
+"@type":
+"Organization",
+
+
+"name":
+"Infinotech",
+
+
+"url":
+siteUrl,
+
+
+"logo":
+`${siteUrl}/logo/infinotech-logo.png`,
+
+
+
+"description":description,
+
+
+
+"foundingDate":
+"2020",
+
+
+
+"telephone":
+"+94754546492",
+
+
+
+"sameAs":[
+
+
+"https://www.linkedin.com/company/infinotech",
+
+
+"https://www.instagram.com/infinotech"
+
+
+],
+
+
+
+"knowsAbout":[
+
+
+"Web Development",
+
+"Software Engineering",
+
+"Artificial Intelligence",
+
+"Mobile Applications",
+
+"Cloud Computing",
+
+"Automation",
+
+"UI UX Design",
+
+"Digital Marketing"
+
+
+]
+
+
+},
+
+
+
+
+
+{
+
+
+"@type":
+"WebSite",
+
+
+"name":
+"Infinotech",
+
+
+"url":
+siteUrl,
+
+
+"description":
+description
+
+
+
+},
+
+
+
+
+
+{
+
+
+"@type":
+"SoftwareCompany",
+
+
+"name":
+"Infinotech",
+
+
+"url":
+siteUrl,
+
+
+"areaServed":
+"Worldwide",
+
+
+
+"serviceType":[
+
+
+"Website Development",
+
+"Mobile Application Development",
+
+"Custom Software Development",
+
+"AI Development",
+
+"Automation Solutions"
+
+
+]
+
+
+}
+
+
+
+
+]
+
+
 };
 
 
-/* ----------------------------------
-   ROOT LAYOUT
------------------------------------ */
+
+
+
+
+
+/* ===============================
+ROOT LAYOUT
+================================ */
+
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+
+children,
+
+}:Readonly<{
+
+children:React.ReactNode;
+
 }>) {
-  return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
-      <body
-        className={`
-          ${geistSans.variable}
-          ${geistMono.variable}
-          min-h-screen
-          bg-white
-          font-sans
-          text-black
-          antialiased
-        `}
-      >
-
-        {/* STRUCTURED DATA */}
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html:
-              JSON.stringify(
-                organizationSchema
-              ),
-          }}
-        />
 
 
-        {/* GLOBAL NAVIGATION */}
 
-        <Navbar />
-
-
-        {/* PAGE CONTENT */}
-
-        <div className="min-h-screen">
-          {children}
-        </div>
+return (
 
 
-        {/* GLOBAL FOOTER */}
+<html
 
-        <Footer />
+lang="en"
+
+suppressHydrationWarning
+
+>
 
 
-        {/* GLOBAL AI ASSISTANT */}
 
-        <InfinotechAI />
+<body
 
-      </body>
-    </html>
-  );
+
+className={`
+
+${geistSans.variable}
+
+${geistMono.variable}
+
+min-h-screen
+
+bg-white
+
+font-sans
+
+text-black
+
+antialiased
+
+`}
+
+
+>
+
+
+
+
+<script
+
+
+type="application/ld+json"
+
+
+dangerouslySetInnerHTML={{
+
+__html:
+
+JSON.stringify(structuredData)
+
+
+}}
+
+
+/>
+
+
+
+
+
+<Navbar />
+
+
+
+
+
+<main className="min-h-screen">
+
+
+{children}
+
+
+</main>
+
+
+
+
+
+
+<Footer />
+
+
+
+
+
+<InfinotechAI />
+
+
+
+
+
+</body>
+
+
+
+
+</html>
+
+
+);
+
+
 }
