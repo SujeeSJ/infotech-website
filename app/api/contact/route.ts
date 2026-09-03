@@ -18,6 +18,7 @@ export async function POST(
     const body = await request.json();
 
 
+
     const {
       name,
       email,
@@ -31,8 +32,9 @@ export async function POST(
 
 
 
-    await resend.emails.send({
 
+
+    await resend.emails.send({
 
       from:
       "Infinotech Website <onboarding@resend.dev>",
@@ -42,8 +44,11 @@ export async function POST(
       "info@infinotech.com",
 
 
+
       subject:
       `New Infinotech Inquiry from ${name}`,
+
+
 
 
       html:
@@ -52,27 +57,40 @@ export async function POST(
 
       <h2>New Website Inquiry</h2>
 
+
       <p><b>Name:</b> ${name}</p>
+
 
       <p><b>Email:</b> ${email}</p>
 
+
       <p><b>Phone:</b> ${phone}</p>
+
 
       <p><b>Company:</b> ${company}</p>
 
+
       <p><b>Service:</b> ${service}</p>
+
 
       <p><b>Budget:</b> ${budget}</p>
 
+
       <hr/>
+
 
       <p><b>Message:</b></p>
 
+
       <p>${message}</p>
+
 
       `
 
+
     });
+
+
 
 
 
@@ -86,25 +104,39 @@ export async function POST(
 
   }
 
-  catch(error){
+  catch(error:any) {
 
 
-    console.log(error);
+    console.error(
+      "CONTACT ERROR:",
+      error
+    );
+
 
 
     return NextResponse.json(
 
       {
-        success:false
+
+        success:false,
+
+        error:
+        error?.message ||
+        "Unable to send enquiry"
+
       },
 
+
       {
+
         status:500
+
       }
 
     );
 
 
   }
+
 
 }
