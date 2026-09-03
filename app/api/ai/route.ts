@@ -1,28 +1,46 @@
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
+console.log(
+  "OPENAI KEY STATUS:",
+  process.env.OPENAI_API_KEY
+    ? "FOUND"
+    : "MISSING"
+);
+
 const openai = process.env.OPENAI_API_KEY
   ? new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     })
   : null;
 
+
+
 type ChatMessage = {
+
   role: "user" | "assistant";
+
   content: string;
+
 };
 
+
+
+
 const INFINOTECH_KNOWLEDGE = `
+
 You are Infinotech AI, the official AI project consultant for Infinotech.
 
 ABOUT INFINOTECH
+
 - Company name: Infinotech
 - Registered under: Apexx Private Limited
 - Registered since: 8 December 2020
 - Infinotech is a digital technology company focused on modern digital products.
-- The company also provides internship training and practical technology experience to future professionals.
+- Infinotech provides practical technology solutions and internship training opportunities.
 
 CORE SERVICES
+
 - Website Design & Development
 - Custom Web Applications
 - Mobile Application Development
@@ -35,7 +53,9 @@ CORE SERVICES
 - Digital Marketing
 - Cyber Security
 
+
 WEB TECHNOLOGIES
+
 - Next.js
 - React
 - Vue
@@ -56,7 +76,9 @@ WEB TECHNOLOGIES
 - .NET
 - Java / Spring Boot
 
+
 MOBILE
+
 - Flutter
 - React Native
 - Android
@@ -64,7 +86,9 @@ MOBILE
 - iOS
 - Swift
 
+
 DATABASES
+
 - PostgreSQL
 - MySQL
 - MongoDB
@@ -72,7 +96,9 @@ DATABASES
 - Redis
 - SQL Server
 
+
 CLOUD / DEVOPS
+
 - AWS
 - Microsoft Azure
 - Google Cloud
@@ -81,137 +107,266 @@ CLOUD / DEVOPS
 - Kubernetes
 - CI/CD
 
-AI
-- OpenAI
-- Gemini
-- Claude
-- AI assistants
-- AI agents
-- Workflow automation
-- Business automation
-- AI integrations
-- Machine learning solutions
+
+AI SOLUTIONS
+
+- AI Assistants
+- AI Agents
+- Workflow Automation
+- Business Automation
+- AI Integrations
+- Machine Learning Solutions
+
 
 DESIGN
+
 - Figma
 - UI/UX
 - Wireframing
 - Prototyping
-- Design systems
+- Design Systems
+
 
 SELECTED PROJECTS
+
 - OMG Arcade — gaming and entertainment digital experience
 - Haya Family Restaurant — restaurant digital experience
 
+
 YOUR ROLE
+
 Act like a professional digital consultant, not a generic chatbot.
 
 When someone explains a business idea:
+
 1. Understand their business.
-2. Recommend the most useful solution.
+2. Recommend the most useful digital solution.
 3. Suggest important features.
-4. Suggest suitable technology only when useful.
-5. Explain the business value.
+4. Suggest technology only when useful.
+5. Explain business value.
 6. Encourage them to start a project with Infinotech.
 
-Keep answers clear and concise.
-Do not overwhelm visitors with technical jargon.
 
-Never invent prices, project results, client testimonials, team size, certifications,
-office locations, or delivery timelines.
+RULES
 
-If someone asks for pricing, say that pricing depends on scope and recommend discussing the requirements with Infinotech.
+- Keep answers clear and concise.
+- Do not overwhelm visitors with technical jargon.
+- Never invent prices.
+- Never invent client testimonials.
+- Never invent project results.
+- Never invent certifications, offices or timelines.
 
-If someone asks something unrelated to Infinotech, technology, software, AI,
-digital business, websites, apps, or project planning, politely guide them back
-toward how Infinotech may help.
+If someone asks for pricing:
+Explain that pricing depends on project requirements and recommend discussing the project with Infinotech.
 
-You are friendly, confident, professional and internationally oriented.
+If someone asks unrelated questions:
+Politely guide them back toward how Infinotech can help.
+
+You are friendly, professional and internationally oriented.
+
 `;
 
-export async function POST(request: Request) {
-  if (!openai) {
-    return Response.json(
-      { error: "AI is currently unavailable" },
-      { status: 503 }
-    );
-  }
+
+
+
+
+export async function POST(
+  request: Request
+) {
+
+
   try {
-    if (!process.env.OPENAI_API_KEY) {
+
+
+    if (!openai) {
+
+
       return NextResponse.json(
+
         {
-          error: "OPENAI_API_KEY is not configured.",
+          error:
+          "AI is currently unavailable."
         },
+
         {
-          status: 500,
+          status:503
         }
+
       );
+
+
     }
 
-    const body = await request.json();
 
-    const messages: ChatMessage[] = Array.isArray(body.messages)
+
+
+
+    const body =
+      await request.json();
+
+
+
+
+    const messages: ChatMessage[] =
+      Array.isArray(body.messages)
       ? body.messages
       : [];
 
-    if (messages.length === 0) {
+
+
+
+
+    if(messages.length === 0){
+
+
       return NextResponse.json(
+
         {
-          error: "No messages received.",
+          error:
+          "No messages received."
         },
+
         {
-          status: 400,
+          status:400
         }
+
       );
+
+
     }
 
-    /*
-      Limit conversation history for now.
-      This keeps requests smaller and cheaper.
-    */
-    const recentMessages = messages.slice(-6);
 
-    const conversation = recentMessages
-      .map((message) => {
-        const speaker =
-          message.role === "assistant" ? "Infinotech AI" : "Visitor";
 
-        return `${speaker}: ${message.content}`;
-      })
-      .join("\n\n");
 
-    const response = await openai.responses.create({
-        model: "gpt-5.4-nano",
 
-      instructions: INFINOTECH_KNOWLEDGE,
+    const recentMessages =
+      messages
+      .slice(-8)
+      .map((message)=>({
 
-      input: `
-Continue the following conversation.
+        role:
+        message.role,
 
-${conversation}
+        content:
+        message.content
+        .slice(0,1000)
 
-Respond as Infinotech AI.
-      `,
+      }));
 
-      max_output_tokens: 250,
-    });
+
+
+
+
+
+
+    const response =
+      await openai.responses.create({
+
+
+
+        model:
+        "gpt-5-mini",
+
+
+
+
+        instructions:
+        INFINOTECH_KNOWLEDGE,
+
+
+
+
+        input:
+
+        recentMessages.map(
+          (message)=>({
+
+
+            role:
+            message.role === "assistant"
+            ? "assistant"
+            : "user",
+
+
+
+
+            content:[
+
+              {
+
+                type:
+                "input_text",
+
+
+                text:
+                message.content
+
+              }
+
+            ]
+
+
+          })
+
+        ),
+
+
+
+
+
+        max_output_tokens:
+        300,
+
+
+
+      });
+
+
+
+
+
+
 
     return NextResponse.json({
-      message:
-        response.output_text ||
-        "I couldn't generate a response. Please try again.",
-    });
-  } catch (error) {
-    console.error("Infinotech AI error:", error);
 
+
+      message:
+
+      response.output_text ||
+
+      "I couldn't generate a response. Please try again."
+
+
+    });
+
+
+
+
+
+  }
+  catch(error:any){
+
+    console.error(
+      "Infinotech AI Error:",
+      error
+    );
+  
+  
     return NextResponse.json(
+  
       {
         error:
-          "Infinotech AI is temporarily unavailable. Please try again.",
+          error?.message ||
+          "Unknown OpenAI error"
       },
+  
       {
-        status: 500,
+        status:500
       }
+  
     );
+  
   }
+
+
 }
