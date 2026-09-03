@@ -41,7 +41,6 @@ export default function Hero({
 
       <div className="pointer-events-none absolute inset-0">
 
-
         <div
           className="
             absolute
@@ -54,7 +53,6 @@ export default function Hero({
             blur-[130px]
           "
         />
-
 
         <div
           className="
@@ -69,7 +67,6 @@ export default function Hero({
           "
         />
 
-
         <div
           className="
             absolute
@@ -83,8 +80,6 @@ export default function Hero({
       </div>
 
 
-
-
       <div
         className="
           relative
@@ -96,7 +91,6 @@ export default function Hero({
           xl:px-16
         "
       >
-
 
 
         {/* CATEGORY */}
@@ -147,9 +141,7 @@ export default function Hero({
 
 
 
-
         {/* TITLE AREA */}
-
 
         <div
           className="
@@ -160,7 +152,6 @@ export default function Hero({
             lg:items-end
           "
         >
-
 
           <MotionDiv
             initial={{
@@ -179,7 +170,6 @@ export default function Hero({
             }}
           >
 
-
             <h1
               className="
                 max-w-5xl
@@ -195,10 +185,6 @@ export default function Hero({
 
             </h1>
 
-
-
-
-            {/* SERVICES */}
 
             <div
               className="
@@ -256,7 +242,6 @@ export default function Hero({
             }}
           >
 
-
             <p
               className="
                 max-w-xl
@@ -266,11 +251,8 @@ export default function Hero({
                 md:text-xl
               "
             >
-
               {project.description}
-
             </p>
-
 
 
 
@@ -288,7 +270,6 @@ export default function Hero({
               "
             >
 
-
               <div>
 
                 <p
@@ -303,7 +284,6 @@ export default function Hero({
                   Industry
                 </p>
 
-
                 <p
                   className="
                     mt-2
@@ -315,10 +295,7 @@ export default function Hero({
                   {project.industry}
                 </p>
 
-
               </div>
-
-
 
 
               <div>
@@ -335,7 +312,6 @@ export default function Hero({
                   Year
                 </p>
 
-
                 <p
                   className="
                     mt-2
@@ -347,12 +323,10 @@ export default function Hero({
                   {project.year}
                 </p>
 
-
               </div>
 
 
             </div>
-
 
 
 
@@ -403,11 +377,11 @@ export default function Hero({
 
 
 
-
         {/* WEBSITE SHOWCASE */}
 
 
         <MotionDiv
+
           initial={{
             opacity:0,
             y:35,
@@ -431,6 +405,7 @@ export default function Hero({
             sm:mt-20
             md:mt-24
           "
+
         >
 
 
@@ -438,6 +413,7 @@ export default function Hero({
           {/* OUTER FRAME */}
 
           <div
+
             className="
               relative
               overflow-hidden
@@ -450,6 +426,7 @@ export default function Hero({
               sm:rounded-[40px]
               sm:p-4
             "
+
           >
 
 
@@ -457,6 +434,7 @@ export default function Hero({
             {/* BROWSER */}
 
             <div
+
               className="
                 overflow-hidden
                 rounded-[20px]
@@ -465,6 +443,7 @@ export default function Hero({
                 bg-white
                 sm:rounded-[30px]
               "
+
             >
 
 
@@ -472,6 +451,7 @@ export default function Hero({
               {/* BROWSER BAR */}
 
               <div
+
                 className="
                   flex
                   items-center
@@ -480,20 +460,23 @@ export default function Hero({
                   border-black/10
                   bg-[#fafafa]
                   px-3
-                  py-3
+                  py-2
                   sm:gap-4
                   sm:px-6
                   sm:py-4
                 "
+
               >
 
 
                 <div
+
                   className="
                     flex
                     shrink-0
                     gap-2
                   "
+
                 >
 
                   <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
@@ -508,8 +491,8 @@ export default function Hero({
 
 
 
-
                 <div
+
                   className="
                     mx-auto
                     max-w-[420px]
@@ -527,6 +510,7 @@ export default function Hero({
                     sm:px-4
                     sm:text-xs
                   "
+
                 >
 
                   {websiteLabel || project.title}
@@ -536,12 +520,15 @@ export default function Hero({
 
 
 
+
                 <div
+
                   className="
                     hidden
                     w-[52px]
                     sm:block
                   "
+
                 />
 
 
@@ -550,24 +537,27 @@ export default function Hero({
 
 
 
+              {/* PROJECT IMAGE - MOBILE FIX */}
 
-              {/* PROJECT IMAGE */}
 
               <div
+
                 className="
                   relative
-                  aspect-[16/10]
-                  min-h-[240px]
+                  aspect-[4/5]
                   overflow-hidden
                   bg-neutral-100
+                  sm:aspect-[16/10]
                   sm:min-h-[360px]
                   md:min-h-[580px]
                   xl:min-h-[680px]
                 "
+
               >
 
 
                 <Image
+
                   src={project.image}
 
                   alt={`${project.title} website experience`}
@@ -577,10 +567,12 @@ export default function Hero({
                   priority
 
                   className="
-                    object-contain
-                    object-center
-                    p-1
-                    sm:p-0
+                    object-cover
+                    object-top
+                    sm:object-contain
+                    sm:object-center
+                    p-0
+                    sm:p-1
                   "
 
                   sizes="
@@ -588,11 +580,13 @@ export default function Hero({
                     (max-width:1400px) 90vw,
                     1300px
                   "
+
                 />
 
 
 
                 <div
+
                   className="
                     pointer-events-none
                     absolute
@@ -604,6 +598,7 @@ export default function Hero({
                     to-transparent
                     sm:h-32
                   "
+
                 />
 
 
@@ -614,225 +609,239 @@ export default function Hero({
             </div>
 
 
-
           </div>
                     {/* FLOATING LEFT CARD */}
 
                     <MotionDiv
-            animate={{
-              y:[0,-8,0],
-            }}
 
-            transition={{
-              duration:4.5,
-              repeat:Infinity,
-            }}
+animate={{
+  y:[0,-8,0],
+}}
 
-            className="
-              absolute
-              -left-5
-              bottom-20
-              hidden
-              rounded-[22px]
-              border
-              border-black/10
-              bg-white/95
-              px-5
-              py-4
-              shadow-xl
-              backdrop-blur-xl
-              lg:block
-              xl:-left-8
-            "
-          >
+transition={{
+  duration:4.5,
+  repeat:Infinity,
+}}
 
+className="
+  absolute
+  -left-5
+  bottom-20
+  hidden
+  rounded-[22px]
+  border
+  border-black/10
+  bg-white/95
+  px-5
+  py-4
+  shadow-xl
+  backdrop-blur-xl
+  lg:block
+  xl:-left-8
+"
 
-            <p
-              className="
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-black/30
-              "
-            >
-              Experience
-            </p>
+>
 
-
-            <p
-              className="
-                mt-2
-                text-sm
-                font-semibold
-              "
-            >
-              {project.industry}
-            </p>
+<p
+  className="
+    text-[10px]
+    font-semibold
+    uppercase
+    tracking-[0.18em]
+    text-black/30
+  "
+>
+  Experience
+</p>
 
 
-          </MotionDiv>
+<p
+  className="
+    mt-2
+    text-sm
+    font-semibold
+  "
+>
+  {project.industry}
+</p>
 
 
-
-
-
-          {/* FLOATING RIGHT CARD */}
-
-
-          <MotionDiv
-            animate={{
-              y:[0,8,0],
-            }}
-
-            transition={{
-              duration:5,
-              repeat:Infinity,
-            }}
-
-            className="
-              absolute
-              -right-5
-              top-24
-              hidden
-              rounded-[22px]
-              border
-              border-black/10
-              bg-black
-              px-5
-              py-4
-              text-white
-              shadow-xl
-              lg:block
-              xl:-right-8
-            "
-          >
-
-
-            <p
-              className="
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-white/35
-              "
-            >
-              Project Focus
-            </p>
-
-
-            <p
-              className="
-                mt-2
-                text-sm
-                font-semibold
-              "
-            >
-              Digital Experience
-            </p>
-
-
-          </MotionDiv>
-
-
-
-        </MotionDiv>
+</MotionDiv>
 
 
 
 
 
+{/* FLOATING RIGHT CARD */}
 
 
-        {/* NEXT SECTION INDICATOR */}
+<MotionDiv
+
+animate={{
+  y:[0,8,0],
+}}
+
+transition={{
+  duration:5,
+  repeat:Infinity,
+}}
+
+className="
+  absolute
+  -right-5
+  top-24
+  hidden
+  rounded-[22px]
+  border
+  border-black/10
+  bg-black
+  px-5
+  py-4
+  text-white
+  shadow-xl
+  lg:block
+  xl:-right-8
+"
+
+>
 
 
-        <MotionDiv
-
-          initial={{
-            opacity:0,
-          }}
-
-          animate={{
-            opacity:1,
-          }}
-
-          transition={{
-            duration:0.7,
-            delay:0.5,
-          }}
-
-          className="
-            mt-10
-            flex
-            items-center
-            justify-between
-            border-b
-            border-black/10
-            pb-6
-          "
-
-        >
+<p
+  className="
+    text-[10px]
+    font-semibold
+    uppercase
+    tracking-[0.18em]
+    text-white/35
+  "
+>
+  Project Focus
+</p>
 
 
-          <p
-            className="
-              text-xs
-              uppercase
-              tracking-[0.18em]
-              text-black/30
-            "
-          >
-            Explore the case study
-          </p>
+<p
+  className="
+    mt-2
+    text-sm
+    font-semibold
+  "
+>
+  Digital Experience
+</p>
 
 
-
-
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-            "
-          >
-
-            <span
-              className="
-                text-xs
-                text-black/35
-              "
-            >
-              Scroll
-            </span>
+</MotionDiv>
 
 
 
-            <ArrowUpRight
-
-              size={14}
-
-              className="
-                rotate-[135deg]
-                text-orange-500
-              "
-
-            />
-
-
-          </div>
-
-
-        </MotionDiv>
+</MotionDiv>
 
 
 
 
-      </div>
 
 
-    </section>
-  );
+
+{/* NEXT SECTION INDICATOR */}
+
+
+<MotionDiv
+
+initial={{
+opacity:0,
+}}
+
+animate={{
+opacity:1,
+}}
+
+transition={{
+duration:0.7,
+delay:0.5,
+}}
+
+
+className="
+mt-10
+flex
+items-center
+justify-between
+border-b
+border-black/10
+pb-6
+"
+
+>
+
+
+<p
+
+className="
+  text-xs
+  uppercase
+  tracking-[0.18em]
+  text-black/30
+"
+
+>
+
+Explore the case study
+
+</p>
+
+
+
+
+<div
+
+className="
+  flex
+  items-center
+  gap-3
+"
+
+>
+
+
+<span
+
+  className="
+    text-xs
+    text-black/35
+  "
+
+>
+
+  Scroll
+
+</span>
+
+
+
+<ArrowUpRight
+
+  size={14}
+
+  className="
+    rotate-[135deg]
+    text-orange-500
+  "
+
+/>
+
+
+</div>
+
+
+</MotionDiv>
+
+
+
+
+</div>
+
+
+</section>
+);
 
 }
