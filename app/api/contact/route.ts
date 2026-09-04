@@ -2,12 +2,6 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 
-const resend = new Resend(
-  process.env.RESEND_API_KEY
-);
-
-
-
 export async function POST(
   request: Request
 ) {
@@ -15,7 +9,29 @@ export async function POST(
   try {
 
 
-    const body = await request.json();
+    if (!process.env.RESEND_API_KEY) {
+
+      return NextResponse.json(
+        {
+          success:false,
+          error:"RESEND_API_KEY missing"
+        },
+        {
+          status:500
+        }
+      );
+
+    }
+
+
+    const resend = new Resend(
+      process.env.RESEND_API_KEY
+    );
+
+
+
+    const body =
+    await request.json();
 
 
 
@@ -32,8 +48,6 @@ export async function POST(
 
 
 
-
-
     await resend.emails.send({
 
       from:
@@ -44,34 +58,26 @@ export async function POST(
       "info@infinotech.com",
 
 
-
       subject:
       `New Infinotech Inquiry from ${name}`,
-
-
 
 
       html:
 
       `
 
-      <h2>New Website Inquiry</h2>
+      <h2>New Infinotech Website Inquiry</h2>
 
 
       <p><b>Name:</b> ${name}</p>
 
-
       <p><b>Email:</b> ${email}</p>
-
 
       <p><b>Phone:</b> ${phone}</p>
 
-
       <p><b>Company:</b> ${company}</p>
 
-
       <p><b>Service:</b> ${service}</p>
-
 
       <p><b>Budget:</b> ${budget}</p>
 
@@ -81,16 +87,11 @@ export async function POST(
 
       <p><b>Message:</b></p>
 
-
       <p>${message}</p>
-
 
       `
 
-
     });
-
-
 
 
 
@@ -104,7 +105,7 @@ export async function POST(
 
   }
 
-  catch(error:any) {
+  catch(error:any){
 
 
     console.error(
@@ -113,24 +114,15 @@ export async function POST(
     );
 
 
-
     return NextResponse.json(
 
       {
-
         success:false,
-
-        error:
-        error?.message ||
-        "Unable to send enquiry"
-
+        error:error.message
       },
 
-
       {
-
         status:500
-
       }
 
     );
