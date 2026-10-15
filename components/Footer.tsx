@@ -377,7 +377,7 @@ export default function Footer() {
               <div className="mt-4 flex flex-wrap gap-3">
 
                 <a
-                  href="tel:+94754546492"
+                  href="tel:+94711312154"
                   className="
                     group
                     inline-flex

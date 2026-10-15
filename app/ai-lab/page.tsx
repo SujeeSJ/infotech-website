@@ -24,7 +24,7 @@ import {
 ----------------------------------- */
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send/?phone=94754546492&text&type=phone_number&app_absent=0";
+  "https://api.whatsapp.com/send/?phone=94711312154&text&type=phone_number&app_absent=0";
 
 
 /* ----------------------------------
@@ -1245,7 +1245,7 @@ export default function AILabPage() {
 
 
                 <a
-                  href="tel:+94754546492"
+                  href="tel:+94711312154"
                   className="
                     inline-flex
                     items-center

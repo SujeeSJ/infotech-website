@@ -264,7 +264,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
 
             <a
-              href="https://api.whatsapp.com/send/?phone=94754546492&text&type=phone_number&app_absent=0"
+              href="https://api.whatsapp.com/send/?phone=94711312154&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -668,7 +668,7 @@ export default function Navbar() {
               {/* MOBILE WHATSAPP */}
 
               <a
-                href="https://api.whatsapp.com/send/?phone=94754546492&text&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone=94711312154&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
