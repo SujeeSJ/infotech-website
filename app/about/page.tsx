@@ -78,7 +78,7 @@ const aboutSchema = {
 
     foundingDate: "2020-12-08",
 
-    telephone: "+94711312154",
+    telephone: "+94721312154",
 
     parentOrganization: {
       "@type": "Organization",
@@ -926,7 +926,7 @@ export default function AboutPage() {
 
 
                 <a
-                  href="tel:+94711312154"
+                  href="tel:+94721312154"
                   className="
                     inline-flex
                     items-center

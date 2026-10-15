@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send/?phone=94711312154&text&type=phone_number&app_absent=0";
+  "https://api.whatsapp.com/send/?phone=94721312154&text&type=phone_number&app_absent=0";
 
 const companyLinks = [
   { label: "Home", href: "/" },
@@ -377,7 +377,7 @@ export default function Footer() {
               <div className="mt-4 flex flex-wrap gap-3">
 
                 <a
-                  href="tel:+94711312154"
+                  href="tel:+94721312154"
                   className="
                     group
                     inline-flex

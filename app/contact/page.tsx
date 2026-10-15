@@ -27,7 +27,7 @@ import {
 
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send/?phone=94711312154&text&type=phone_number&app_absent=0";
+  "https://api.whatsapp.com/send/?phone=94721312154&text&type=phone_number&app_absent=0";
 
 
 
@@ -448,7 +448,7 @@ export default function ContactClient() {
 
 
                 <a
-                  href="tel:+94711312154"
+                  href="tel:+94721312154"
                   className="
                     flex
                     items-center
@@ -478,7 +478,7 @@ export default function ContactClient() {
 
                       <p className="mt-1 text-sm font-semibold">
 
-                        +94 75 454 6492
+                        +94 72 131 2154
 
                       </p>
 
