@@ -402,7 +402,7 @@ export default function Footer() {
                     className="text-orange-400"
                   />
 
-                  +94 75 454 6492
+                  +94 71 131 2154
                 </a>
 
 
